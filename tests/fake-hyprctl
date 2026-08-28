@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+set -euo pipefail
+printf '%s\n' '{"class":"org.example.App","title":"Example document","workspace":{"name":"1"}}'

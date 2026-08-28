@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": "io.github.gustavonline.local-ai-pi-copilot",
+  "name": "Local AI Copilot",
+  "version": "0.1.0",
+  "author": "Gustav Andersen",
+  "license": "MIT",
+  "description": "An opt-in, event-driven Omarchy copilot powered by an isolated Pi session and a local OpenAI-compatible model.",
+  "kinds": ["bar-widget"],
+  "activation": "on-demand",
+  "entryPoints": {
+    "barWidget": "Panel.qml"
+  },
+  "barWidget": {
+    "displayName": "Local AI Copilot",
+    "description": "Toggle a local proactive copilot and review its suggestions.",
+    "category": "AI",
+    "aliases": ["copilot", "pi", "local-ai", "proactive"],
+    "allowMultiple": false,
+    "defaultSection": "right",
+    "defaults": {
+      "localConfigFile": "~/.config/omarchy/local-ai-pi-copilot.toml",
+      "refreshIntervalSec": 5
+    },
+    "schema": [
+      {
+        "key": "localConfigFile",
+        "type": "path",
+        "label": "Copilot settings",
+        "defaultValue": "~/.config/omarchy/local-ai-pi-copilot.toml",
+        "description": "Machine-local runtime, privacy, observer, and delegation settings."
+      },
+      {
+        "key": "refreshIntervalSec",
+        "type": "integer",
+        "label": "Status refresh (seconds)",
+        "min": 2,
+        "max": 60,
+        "step": 1,
+        "defaultValue": 5
+      }
+    ]
+  }
+}

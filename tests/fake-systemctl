@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+set -euo pipefail
+case " $* " in
+  *" is-active "*) exit 3 ;;
+  *" is-enabled "*) exit 1 ;;
+  *) exit 0 ;;
+esac

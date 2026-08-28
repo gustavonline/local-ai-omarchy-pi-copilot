@@ -1,0 +1,43 @@
+# Local AI Copilot
+#
+# This plugin is independent of the Local AI runtime controller and
+# local-ai-pi-worker. It only needs Pi and an OpenAI-compatible endpoint.
+
+[runtime]
+endpoint = "http://127.0.0.1:8080/v1"
+model = "auto"
+context_window = 65536
+max_output_tokens = 512
+api_key_env = ""
+allow_remote_endpoint = false
+startup_timeout_sec = 60
+
+# Optional argv used only when the endpoint is unavailable. It is executed
+# directly, never through a shell. Leave empty for an externally managed model.
+start_command = []
+# Example integration with the separate Local AI plugin:
+# start_command = ["/home/you/.config/omarchy/plugins/gustav.local-ai/local-ai-control", "--config", "/home/you/.config/omarchy/local-ai.toml", "start", "Q4"]
+
+[observer]
+debounce_sec = 5
+cooldown_sec = 180
+poll_interval_sec = 15
+inference_timeout_sec = 30
+minimum_confidence = 0.72
+suggestion_ttl_sec = 45
+max_suggestions_per_hour = 8
+
+[privacy]
+share_window_title = true
+deny_apps = ["1password", "bitwarden", "keepassxc", "org.gnome.seahorse"]
+deny_title_patterns = ["password", "passcode", "secret", "private key", "banking", "incognito", "private browsing"]
+
+[delegation]
+# Optional, independent adapter. The command is opened in a visible terminal
+# only after the user clicks Delegate. The generated task is appended as the
+# final argv item. Leave empty when no heavy harness is installed.
+command = ["pi-worker", "--thinking", "low", "--no-web", "--"]
+launch_in_terminal = true
+
+[playbook]
+path = "~/.config/omarchy/local-ai-pi-copilot-playbook.json"

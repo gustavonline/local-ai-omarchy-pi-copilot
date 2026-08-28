@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+set -euo pipefail
+printf '%s\n' '{"show":true,"title":"Prepare the next step","body":"A bounded local suggestion from the fake Pi runtime.","copy_text":"Draft text","delegate_prompt":"Review this task without editing files.","confidence":0.91,"reason":"test"}'
