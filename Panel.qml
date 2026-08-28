@@ -51,8 +51,8 @@ Panel {
   readonly property bool active: status.active === true
   readonly property bool paused: status.paused === true
   readonly property bool failed: status.state === "error" || String(status.lastError || "") !== ""
-  readonly property bool suggestionVisible: suggestion && suggestion.id
-    && Number(suggestion.expiresAt || 0) * 1000 > clockMs
+  readonly property bool suggestionVisible: String((suggestion || {}).id || "") !== ""
+    && Number((suggestion || {}).expiresAt || 0) * 1000 > clockMs
   readonly property string stateLabel: {
     if (busy) return "Updating…"
     if (!status.configured) return "Setup needed"
