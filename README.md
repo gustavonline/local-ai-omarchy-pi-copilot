@@ -1,5 +1,10 @@
 # Local AI Omarchy Pi Copilot
 
+> **Archived:** this prototype has been merged into the single
+> [Local AI for Omarchy](https://github.com/gustavonline/omarchy-llama-cpp-local-ai)
+> plugin as its optional **Always-on Copilot** subsystem. Do not install this
+> repository as a second Omarchy plugin.
+
 An opt-in, event-driven Omarchy copilot that uses an isolated, minimal
 [Pi](https://pi.dev/) session and a local OpenAI-compatible model to produce
 small proactive suggestions.
